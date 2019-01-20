@@ -1,0 +1,10 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="object" type="String"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="pageType" type="String"/>
+    <aura:attribute name="objectSubTab" type="String"/>
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="consoleTabId" type="String"/>
+    <aura:attribute name="customCriteriaEvaluated" type="Boolean" default="false"/>
+    
+</aura:event>

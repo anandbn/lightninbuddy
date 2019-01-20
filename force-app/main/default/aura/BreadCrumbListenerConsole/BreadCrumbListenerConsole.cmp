@@ -1,0 +1,11 @@
+<aura:component controller="BreadCrumbController" implements="lightning:backgroundUtilityItem">
+    <aura:attribute name="settings" type="BreadCrumbSettings"></aura:attribute>
+    <aura:attribute name="tabIdAndEvents" type="Map" default="{}"></aura:attribute>
+    <aura:attribute name="tabUrl" type="String"></aura:attribute>
+    <aura:attribute name="tablUrlParams" type="String"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="lightning:tabCreated" action="{!c.onTabCreated}" />
+    <aura:handler event="lightning:tabFocused" action="{!c.onTabFocused}" />
+    <aura:handler event="aura:locationChange" value="{!this}" action="{!c.handleLocationChangeEvent}"/>
+    <lightning:workspaceAPI aura:id="workspace" />
+</aura:component>

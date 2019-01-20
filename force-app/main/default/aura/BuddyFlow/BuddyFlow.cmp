@@ -1,0 +1,8 @@
+<aura:component controller="ActionUserPreferenceController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="flowName" type="String"/>
+    <aura:attribute name="actionId" type="String"/>
+    <aura:attribute name="showOnlyOnce" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<lightning:flow aura:id="flow" onstatuschange="{!c.handleStatusChange}"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+</aura:component>

@@ -1,0 +1,5 @@
+<design:component >
+    <design:attribute name="objectName" label="Object API Name" description="API Name for your object"/>
+    <design:attribute name="subTabName" label="Sub Tab Name" description="Name for your sub tab. Will be matched in your action configuration"/>
+
+</design:component>

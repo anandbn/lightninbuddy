@@ -1,0 +1,11 @@
+.THIS img{
+    width:auto;
+    margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.THIS .slds-carousel__image {
+    height: 300px;
+    margin-bottom:5px;
+}

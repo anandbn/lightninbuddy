@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>43.0</apiVersion>
+    <description>Component that orchestrate the various buddy actions that will appear based on the user&#39;s preference and the user&#39;s current page location.</description>
+</AuraDefinitionBundle>

@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="popoverLabel" label="Text near which the popover will appear" description="Text near which the popover will appear"/>
+
+</design:component>

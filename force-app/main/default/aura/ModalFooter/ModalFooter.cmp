@@ -1,0 +1,9 @@
+<aura:component controller="ActionUserPreferenceController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="actionId" type="String"/>
+    <aura:attribute name="showOnlyOnce" type="Boolean" default="false"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <aura:renderIf isTrue="{!(!v.showOnlyOnce)}">
+        <lightning:button name="dismiss_user" label="{!$Label.c.Dont_show_this_again}" variant="brand" onclick="{!c.handleUserDismiss}"/>
+    </aura:renderIf>
+    <lightning:button name="close" label="{!$Label.c.Close}" variant="brand" onclick="{!c.handleOK}"/>
+</aura:component>

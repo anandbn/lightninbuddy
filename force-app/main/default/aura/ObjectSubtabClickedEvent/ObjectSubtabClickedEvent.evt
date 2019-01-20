@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template">
+        <aura:attribute name="object" type="String"/>
+        <aura:attribute name="pageType" type="String"/>
+        <aura:attribute name="objectSubTab" type="String"/>
+</aura:event>

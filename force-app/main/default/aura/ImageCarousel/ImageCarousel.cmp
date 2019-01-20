@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,lightning:availableForFlowScreens,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="cardInfo" type="String" access="global"/>
+    <aura:attribute name="cardList" type="Object[]" access="global"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initializeCards}"/>
+    <lightning:carousel disableAutoRefresh="true">
+        <aura:iteration items="{!v.cardList}" var="theCard">
+            <lightning:carouselImage src = "{!theCard.imgSrc}"
+                                     header = "{!theCard.cardTitle}"
+                                     description = "{!theCard.cardDescription}"
+                                     alternativeText = "{!theCard.cardDescription}">
+            </lightning:carouselImage>
+        </aura:iteration>	
+    </lightning:carousel>
+</aura:component>

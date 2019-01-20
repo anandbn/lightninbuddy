@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="popoverText" type="String"/>
+    <aura:attribute name="popoverElementClass" type="String"/>
+</aura:event>

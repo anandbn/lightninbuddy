@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="popoverElementClass" type="String" access="global"/>
+    <aura:attribute name="popoverLabel" type="String" access="global" default="Lightning Buddy"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <aura:registerEvent name="RegisterPopoverEvent" type="c:RegisterPopoverEvent"/>
+
+    <aura:handler event="c:ShowPopoverEvent" action="{!c.handleShowPopover}"/>
+    <div class="slds-box slds-p-around_x-small popoutOuterDiv">
+        <lightning:icon size="small" iconName="action:announcement" class="{!v.popoverElementClass}"/>
+        <ui:outputText value="{!v.popoverLabel}"/>
+    </div>
+</aura:component>

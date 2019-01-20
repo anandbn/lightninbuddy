@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:attribute name="modalContent" type="String"/>
+    <ui:outputRichText value="{!v.modalContent}"/>
+</aura:component>

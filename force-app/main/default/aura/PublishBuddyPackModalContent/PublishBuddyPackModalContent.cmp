@@ -1,0 +1,10 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:registerEvent name="BuddyPackPublishEvent" type="c:BuddyPackPublishEvent"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <aura:attribute name="packName" type="String"/>
+    <aura:attribute name="description" type="String"/>
+    <lightning:input name="input1" value="{!v.packName}" aura:id="packname" label="Buddy Pack Name" required="true"/>
+    <ui:inputTextArea aura:id="description" value="{!v.description}" label="Description" required="true" rows="5"/>
+    <lightning:button variant="brand" label="Publish" title="Publish" onclick="{!c.publishAction}"/>
+    
+</aura:component>

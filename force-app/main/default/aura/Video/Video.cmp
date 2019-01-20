@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="videoSrc" type="String" access="global"/>
+    <aura:attribute name="videoType" type="String" access="global"/>
+    <aura:if isTrue="{!v.videoType == 'Youtube'}">
+        <iframe width="560" height="315" 
+                src="{!v.videoSrc}" 
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="false"></iframe>
+        
+    </aura:if>
+    <aura:if isTrue="{!v.videoType == 'Vimeo'}">
+        <iframe src="{!v.videoSrc}" width="640" height="400" frameborder="0"></iframe>
+        
+    </aura:if>
+
+</aura:component>

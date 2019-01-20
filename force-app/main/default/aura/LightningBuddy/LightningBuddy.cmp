@@ -1,0 +1,19 @@
+<aura:component controller="LightningBuddyActionController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:backgroundUtilityItem" access="global" >
+    <aura:attribute name="userInfo" type="User"/>
+    <aura:attribute name="currentActionId" type="String"/>
+    <aura:attribute name="object" type="String"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="record" type="String"/>
+    <aura:attribute name="pageType" type="String"/>
+    <aura:attribute name="objectSubTab" type="String"/>
+    <aura:attribute name="customCriteriaEvaluated" type="Boolean"/>
+    <aura:attribute name="popoverElementClass" type="String"/>
+    <aura:attribute name="popoverMsgToSend" type="String"/>
+    <aura:attribute name="tabsAndEvents" type="Map" default="{}"/>
+    <aura:registerEvent name="ShowPopoverEvent" type="c:ShowPopoverEvent"/>
+    <aura:registerEvent name="CustomCriteriaEvent" type="c:CustomCriteriaEvent"/>
+    <aura:handler event="c:BuddyEvent" action="{!c.handleBuddyEvent}"/>
+    <aura:handler event="c:RegisterPopoverEvent" action="{!c.handleRegisterPopover}"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:quickActionAPI aura:id="quickActionAPI"/>
+</aura:component>

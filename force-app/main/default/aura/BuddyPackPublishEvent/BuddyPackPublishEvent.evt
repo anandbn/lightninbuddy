@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="packName" type="String"/>
+    <aura:attribute name="description" type="String"/>
+    
+</aura:event>

@@ -1,0 +1,5 @@
+<design:component>
+    <design:attribute name="videoSrc" label="Video Source" description="HTTP link to video"/>
+    <design:attribute name="videoType" label="Video Type" datasource="Youtube,Vimeo" description="Type of Video player"/>
+    
+</design:component>
