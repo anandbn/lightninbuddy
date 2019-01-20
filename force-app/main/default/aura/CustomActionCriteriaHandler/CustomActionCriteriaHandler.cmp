@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" >
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
     <aura:handler event="c:CustomCriteriaEvent" action="{!c.handleCustomCriteriaEvent}"/>
     <aura:registerEvent name="BuddyEvent" type="c:BuddyEvent"/>
 
