@@ -1,7 +1,6 @@
 <design:component>
     <design:attribute name="title" label="Title"/>
     <design:attribute name="backgroundImgUrl" label="Background Image"/>
-    <design:attribute name="bannerImage" label="bannerImage"/>
     <design:attribute name="bodyText" label="Body text"/>
     <design:attribute name="tileConfigJson" label="JSON Config for Mat tiles"/>
 

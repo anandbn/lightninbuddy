@@ -3,4 +3,4 @@
     <aura:attribute name="subTabName" type="String" access="global" required="true"/>
     <aura:attribute name="recordId" type="String"/>
     <aura:handler name="init" value="{!this}" action="{!c.sendBuddyEvent}"/>
-</aura:component>	
+</aura:component>

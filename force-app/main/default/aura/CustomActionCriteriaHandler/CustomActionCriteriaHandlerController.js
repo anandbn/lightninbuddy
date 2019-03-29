@@ -5,7 +5,7 @@
         var recordId = event.getParam('recordId');
         var objectSubTab =event.getParam('objectSubTab')
 
-        //Do you custom evaluation of criteria here and then fire the e.lightningbuddy:BuddyEvent
+        //Do you custom evaluation of criteria here and then fire the e.c:BuddyEvent
         //Make sure you register the e:lightningbuddy:BuddyEvent in your component
         var record = event.getParam('record');
 

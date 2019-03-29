@@ -1,0 +1,9 @@
+<aura:event type="APPLICATION" description="Event to fire to display a Welcome mat">
+    <aura:attribute name="showOnlyOnce" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="actionId" type="String" access="global"/>
+    <aura:attribute name="doNotShowAgain" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="title" type="String" default="" access="global"/>
+    <aura:attribute name="bodyText" type="String" default="" access="global"/>
+    <aura:attribute name="backgroundImgUrl" type="String" access="global"/>
+    <aura:attribute name="tileConfigJson" type="String" default="" access="global"/>
+</aura:event>

@@ -14,12 +14,25 @@
         }else if(changeType === "LOADED"){
             //When the record is loaded fire the Record Detail event
             var appEvent = $A.get("e.c:BuddyEvent");
-            appEvent.setParams({ 
-                object:cmp.get('v.record').apiName,
-                pageType:'Record Detail',
-                record:cmp.get('v.record'),
-                recordId:cmp.get('v.recordId')
-            });
+            var createdDate = cmp.get('v.record').fields.CreatedDate.value;
+            var modifiedDate = cmp.get('v.record').fields.LastModifiedDate.value;
+
+            if(createdDate === modifiedDate){
+                appEvent.setParams({ 
+                    object:cmp.get('v.record').apiName,
+                    pageType:'Record Create',
+                    record:cmp.get('v.record'),
+                    recordId:cmp.get('v.recordId')
+                });
+            }else{
+                appEvent.setParams({ 
+                    object:cmp.get('v.record').apiName,
+                    pageType:'Record Detail',
+                    record:cmp.get('v.record'),
+                    recordId:cmp.get('v.recordId')
+                });
+            }
+            
             appEvent.fire();        
             
         }

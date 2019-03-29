@@ -64,7 +64,13 @@
     "handleAction": function(cmp,event,action){
         var consoleTabId = event.getParam('consoleTabId');
         var tabsAndEvents = cmp.get('v.tabsAndEvents');
-        tabsAndEvents[consoleTabId]=true;
+        if(consoleTabId){
+            tabsAndEvents[consoleTabId]=true;
+        }else{
+            var currentTime = new Date().getTime();
+            var evtKey= cmp.get('v.object')+'-' +cmp.get('v.pageType')+'-'+cmp.get('v.objectSubTab');
+            tabsAndEvents[evtKey]=currentTime;
+        }
 
         var modalBody,modalFooter;
         var showOnlyOnce = (action.lightningbuddy__Recurrence__c=='Only once'?true:false);
@@ -147,10 +153,16 @@
             
         }else if(action && action.RecordType.Name === 'Flow'){
             var modalBody;
+            var cmpParams = {	"flowName":action.lightningbuddy__Lightning_Flow_API_Name__c,
+                    "actionId":action.Id,
+                    "showOnlyOnce":showOnlyOnce
+            };
+            if(action.lightningbuddy__Record_Id_as_Input_Variable__c){
+                cmpParams.recordId=cmp.get('v.recordId');
+            }
+
             $A.createComponents([
-                ["c:BuddyFlow",{	"flowName":action.lightningbuddy__Lightning_Flow_API_Name__c,
-                                            	"actionId":action.Id,
-                                             	"showOnlyOnce":showOnlyOnce}],
+                ["c:BuddyFlow",cmpParams],
             ],function(components , status) {
                 if (status === "SUCCESS") {
                     modalBody = components[0];
@@ -162,31 +174,18 @@
                 }                               
             });            
         }else if(action && action.RecordType.Name === 'Welcome Mat'){
-            $A.createComponents([
-                				["c:WelcomeMat", 
-                					{
-                						"title":action.lightningbuddy__Welcome_Mat_Title__c,
-                						"bodyText":action.lightningbuddy__Welcome_Mat_Body__c,
-                                        "backgroundImgUrl":action.lightningbuddy__Welcome_Mat_Background_Image__c,
-                                        "bannerImage":action.lightningbuddy__Welcome_Mat_Main_Image__c,
-                                        "tileConfigJson":action.lightningbuddy__Welcome_Mat_Tile_Config__c
-                					}
-            					],
-                				["c:ModalFooter",{"actionId":action.Id,"showOnlyOnce":showOnlyOnce}]
-                			   ],
-                               function(components , status) {
-                                   if (status === "SUCCESS") {
-                                       modalBody = components[0];
-                                       modalFooter = components[1]
-                                       cmp.find('overlayLib').showCustomModal({
-                                           header: action.Name,
-                                           body: modalBody, 
-                                           footer:modalFooter,
-                                           showCloseButton: true
-                                       })
-                                   }                               
-                               }
-                              );                      
+            var appEvent = $A.get("e.c:ShowWelcomeMat");
+            var eventParams = {
+                "title":action.lightningbuddy__Welcome_Mat_Title__c,
+                "bodyText":action.lightningbuddy__Welcome_Mat_Body__c,
+                "backgroundImgUrl":action.lightningbuddy__Welcome_Mat_Background_Image__c,
+                "tileConfigJson":action.lightningbuddy__Welcome_Mat_Tile_Config__c,
+                "actionId":action.Id,
+                "showOnlyOnce":showOnlyOnce
+            };
+            appEvent.setParams(eventParams);
+            appEvent.fire();
+                                 
         }else if(action && action.RecordType.Name === 'Toaster Alert'){
             var toastEvent = $A.get("e.force:showToast");
             var alertParams = {

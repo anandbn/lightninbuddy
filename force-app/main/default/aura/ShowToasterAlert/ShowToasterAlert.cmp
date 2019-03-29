@@ -1,3 +1,6 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <lightning:overlayLibrary aura:id="overlayLib"/>
     <lightning:button label="Show alert" onclick="{!c.showMyToast}"/>
+    <aura:registerEvent name="ShowWelcomeMat" type="c:ShowWelcomeMat"/>
+    {!v.body}
 </aura:component>

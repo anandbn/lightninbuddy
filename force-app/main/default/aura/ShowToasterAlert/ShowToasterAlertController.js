@@ -1,20 +1,15 @@
 ({
-    showMyToast : function(component, event, helper) {
-        var toastEvent = $A.get("e.force:showToast");
-        toastEvent.setParams({
-            mode: 'dismissable',
-            key: 'announcement',
-            type:'other',
-            title:'My Message Title',
-            message: 'This is a required message',
-            duration:2000,
-            messageTemplate: 'Record {0} created! See it {1}!',
-            messageTemplateData: ['Salesforce', {
-                url: 'http://www.salesforce.com/',
-                label: 'here',
-            }
-                                 ]
-        });
-        toastEvent.fire();
+    showMyToast: function (component, event, helper) {
+
+        var appEvent = $A.get("e.c:ShowWelcomeMat");
+        var theJson = '[{"title":"Update your user profile","sldsIcon":null,"linkUrl":"http://#","bodyText":"Make sure you upload a photo and join the new employees  chatter group"},{"title":"Track adoption with Dashboards","sldsIcon":"action:approval","linkUrl":"https://appexchange.salesforce.com/appxListingDetail?listingId=a0N30000004gHhLEAU","bodyText":"Click to install your adoption dashboards."},{"title":"Business Value Dashboards","sldsIcon":"action:approval","linkUrl":"https://www.salesforce.com","bodyText":"Track your business goals with these dashboards"},{"title":"Talk to your manager about Quota","sldsIcon":"action:goal","linkUrl":null,"bodyText":"Talk to your manager about Sales Strategy"}]';
+        var eventParams = {
+            title: "Hello World",
+            bodyText: "Heloooooo Worldly creatures",
+            actionId: "a010b00000eRXM6AAO",
+            tileConfigJson: theJson
+        };
+        appEvent.setParams(eventParams);
+        appEvent.fire();
     }
 })

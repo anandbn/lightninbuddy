@@ -12,8 +12,11 @@
     <aura:attribute name="tabsAndEvents" type="Map" default="{}"/>
     <aura:registerEvent name="ShowPopoverEvent" type="c:ShowPopoverEvent"/>
     <aura:registerEvent name="CustomCriteriaEvent" type="c:CustomCriteriaEvent"/>
+    <aura:registerEvent name="ShowWelcomeMat" type="c:ShowWelcomeMat"/>
+
     <aura:handler event="c:BuddyEvent" action="{!c.handleBuddyEvent}"/>
     <aura:handler event="c:RegisterPopoverEvent" action="{!c.handleRegisterPopover}"/>
     <lightning:overlayLibrary aura:id="overlayLib"/>
     <lightning:quickActionAPI aura:id="quickActionAPI"/>
+    {!v.body}
 </aura:component>

@@ -1,0 +1,5 @@
+<design:component >
+    <design:attribute name="object" label="Object" />
+    <design:attribute name="pageType" label="Page Type" />
+    <design:attribute name="objectSubTab" label="Subtab name" />
+</design:component>

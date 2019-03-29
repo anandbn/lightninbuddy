@@ -9,44 +9,49 @@
     <aura:attribute name="tiles" type="Object[]" default="" access="global"/>
     <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
     <div class="demo-only" style="height:800px">
-        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-labelledby="welcome-mat-94-label" aria-describedby="welcome-mat-94-content" aria-modal="true">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small"
+            aria-labelledby="welcome-mat-100-label" aria-describedby="welcome-mat-100-content" aria-modal="true">
             <div class="slds-modal__container">
                 <header class="slds-modal__header slds-modal__header_empty">
                     <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
-                            <lightning:icon variant="bare" onclick="{! c.closeWelcomeMat}" iconName="action:close" size="small" alternativeText="Close" />
+                        <lightning:icon iconName="action:close" size="small" onclick="{!c.closeWelcomeMat}"/>
+                        <span class="slds-assistive-text">Close</span>
                     </button>
                 </header>
-                <div class="slds-modal__content" id="welcome-mat-94-content">
+                <div class="slds-modal__content" id="welcome-mat-100-content">
                     <div class="slds-welcome-mat">
                         <div class="slds-welcome-mat__content slds-grid">
-                            <div class="{!v.tileConfigJson!=null?'slds-welcome-mat__info slds-size_1-of-2':'slds-welcome-mat__info slds-size_1-of-1'}" style="{!(v.backgroundImgUrl !=null)?'background-image: url('+v.backgroundImgUrl+')':''}">
+                            <div class="{!v.tileConfigJson!=null?'slds-welcome-mat__info slds-size_1-of-2':'slds-welcome-mat__info slds-size_1-of-1'}"
+                                style="{!(v.backgroundImgUrl !=null)?'background-image: url('+v.backgroundImgUrl+')':''}">
                                 <div class="slds-welcome-mat__info-content">
                                     <h2 class="slds-welcome-mat__info-title" id="welcome-mat-94-label">{!v.title}</h2>
                                     <div class="slds-welcome-mat__info-description slds-text-longform">
                                         <p>{!v.bodyText}</p>
                                     </div>
                                     <!--
-                                    <div class="slds-welcome-mat__info-progress">
-                                        <p>
-                                            <strong>0/5 units completed</strong>
-                                        </p>
-                                    </div>
-                                    <div class="slds-progress-bar slds-progress-bar_circular" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
-                                        <span class="slds-progress-bar__value" style="width:0%">
-                                            <span class="slds-assistive-text">Progress: 0%</span>
-                                        </span>
-                                    </div>
-                                    -->
+                                            <div class="slds-welcome-mat__info-progress">
+                                                <p>
+                                                    <strong>0/5 units completed</strong>
+                                                </p>
+                                            </div>
+                                            <div class="slds-progress-bar slds-progress-bar_circular" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+                                                <span class="slds-progress-bar__value" style="width:0%">
+                                                    <span class="slds-assistive-text">Progress: 0%</span>
+                                                </span>
+                                            </div>
+                                            -->
                                     <aura:if isTrue="{!!(v.showOnlyOnce)}">
                                         <div class="slds-welcome-mat__info-actions">
                                             <div class="slds-m-top_large">
                                                 <div class="slds-form-element">
                                                     <div class="slds-form-element__control">
                                                         <div class="slds-checkbox">
-                                                            <input type="checkbox" name="options" id="checkbox-8" onchange="{!c.toggleDoNotShow}" />
+                                                            <input type="checkbox" name="options" id="checkbox-8"
+                                                                onchange="{!c.toggleDoNotShow}" />
                                                             <label class="slds-checkbox__label" for="checkbox-8">
                                                                 <span class="slds-checkbox_faux"></span>
-                                                                <span class="slds-form-element__label">{!$Label.c.Dont_show_this_again}</span>
+                                                                <span
+                                                                    class="slds-form-element__label">{!$Label.c.Dont_show_this_again}</span>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -54,16 +59,15 @@
                                             </div>
                                         </div>
                                     </aura:if>
-
-                          
                                 </div>
                             </div>
                             <aura:if isTrue="{!v.tileConfigJson!=null}">
                                 <ul class="slds-welcome-mat__tiles slds-size_1-of-2">
                                     <aura:iteration items="{!v.tiles}" var="theTile">
                                         <li class="slds-welcome-mat__tile">
-                                            <a href="javascript:void(0);" class="slds-box slds-box_link slds-media">
-                                                <div class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center">
+                                            <a href="{!theTile.linkUrl!=null?theTile.linkUrl:'#'}" target="_blank" class="slds-box slds-box_link slds-media">
+                                                <div
+                                                    class="slds-media__figure slds-media__figure_fixed-width slds-align_absolute-center">
                                                     <div class="slds-welcome-mat__tile-figure">
                                                         <div class="slds-welcome-mat__tile-icon-container">
                                                             <span class="slds-icon_container">
@@ -74,8 +78,11 @@
                                                 </div>
                                                 <div class="slds-media__body">
                                                     <div class="slds-welcome-mat__tile-body">
-                                                        <h3 class="slds-welcome-mat__tile-title">{!theTile.title}</h3>
-                                                        <p class="slds-welcome-mat__tile-description">{!theTile.bodyText}</p>
+                                                        <h3 class="slds-welcome-mat__tile-title">
+                                                            {!theTile.title}
+                                                        </h3>
+                                                        <p class="slds-welcome-mat__tile-description">{!theTile.bodyText}
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </a>
@@ -83,8 +90,8 @@
                                     </aura:iteration>
                                 </ul>
                             </aura:if>
-
-
+    
+    
                         </div>
                     </div>
                 </div>

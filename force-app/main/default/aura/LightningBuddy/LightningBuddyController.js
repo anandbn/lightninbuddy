@@ -4,16 +4,27 @@
         //console.log('Lightning Buddy Event received:\n'+JSON.stringify(event.getParams(),null,4))
         var consoleTabId = event.getParam('consoleTabId');
         var tabsAndEvents = cmp.get('v.tabsAndEvents');
-        if(consoleTabId!=null && tabsAndEvents[consoleTabId] !=null){
-            //We processed the event for this tab already
-            return;
-        }
         cmp.set('v.object',event.getParam('object'));
         cmp.set('v.pageType',event.getParam('pageType'));
         cmp.set('v.recordId',event.getParam('recordId'));
         cmp.set('v.record',event.getParam('record'));
         cmp.set('v.objectSubTab',event.getParam('objectSubTab'));
         cmp.set('v.customCriteriaEvaluated',event.getParam('customCriteriaEvaluated'));
+
+        if(consoleTabId!=null && tabsAndEvents[consoleTabId] !=null){
+            //We processed the event for this tab already
+            return;
+        }else{
+            var evtKey= cmp.get('v.object')+'-' +cmp.get('v.pageType')+'-'+cmp.get('v.objectSubTab');
+            //Event was processed already;
+            var currentTime = new Date().getTime();
+            if(cmp.get('v.pageType') === 'Home' && tabsAndEvents[evtKey] !=null && (currentTime - tabsAndEvents[evtKey] <=3500 )){
+                //if the previous event was fired within 2 secs, don't do anything
+                tabsAndEvents[evtKey]=null;
+                return;
+            }
+        }
+
         if(cmp.get('v.pageType')==='Record Detail' && 
             cmp.get('v.record') == null &&
             (cmp.get('v.object')!='Dashboard' && cmp.get('v.object')!='Report')){
