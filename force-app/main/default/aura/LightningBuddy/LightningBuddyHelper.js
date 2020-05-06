@@ -261,7 +261,7 @@
         if(actionToShow.lightningbuddy__Record_Update_Criteria__c){
 	        var criteriaList = JSON.parse(actionToShow.lightningbuddy__Record_Update_Criteria__c);
             for(var j=0;j<criteriaList.length;j++){
-                executeAction = executeAction && record.fields[criteriaList[j].fieldName].value === criteriaList[j].fieldValue;
+                executeAction = executeAction && String(record.fields[criteriaList[j].fieldName].value) === criteriaList[j].fieldValue;
             }
 
         }

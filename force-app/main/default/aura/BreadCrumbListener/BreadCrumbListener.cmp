@@ -3,5 +3,6 @@ implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:avail
     <aura:attribute name="settings" type="BreadCrumbSettings"></aura:attribute>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler event="aura:locationChange" value="{!this}" action="{!c.handleLocationChangeEvent}"/>
+    <aura:handler event="forceCommunity:routeChange" action="{!c.handleLocationChangeEvent}"/>
     <aura:registerEvent name="BuddyEvent" type="c:BuddyEvent"/>
 </aura:component>

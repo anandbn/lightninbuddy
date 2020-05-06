@@ -5,6 +5,7 @@
     <aura:attribute name="title" type="String" default="" access="global"/>
     <aura:attribute name="bodyText" type="String" default="" access="global"/>
     <aura:attribute name="backgroundImgUrl" type="String" access="global"/>
+    <aura:attribute name="bannerImage" type="String" access="global" default="false"/>
     <aura:attribute name="tileConfigJson" type="String" default="" access="global"/>
     <aura:attribute name="tiles" type="Object[]" default="" access="global"/>
     <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>

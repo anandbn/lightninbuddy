@@ -21,7 +21,7 @@ public with sharing class LightningBuddyActionController {
                             Welcome_Mat_Title__c,Welcome_Mat_Tile_Config__c,Toaster_Alert_Icon__c,
                                 Toaster_Alert_Message__c,Toaster_Alert_Title__c,Toaster_Alert_Type__c,
                             Toaster_Alert_Mode__c,Toaster_Alert_Duration__c,Toaster_Alert_Param_Config__c,
-                            Use_Custom_Criteria_Handler__c,Record_Id_as_Input_Variable__c
+                            Use_Custom_Criteria_Handler__c,Record_Id_as_Input_Variable__c,Docked_Display__c
                             from Actions__c
                             where Object__c=:objName
                             and Page_Type__c = :pageType
@@ -37,7 +37,7 @@ public with sharing class LightningBuddyActionController {
                             Welcome_Mat_Title__c,Welcome_Mat_Tile_Config__c,Toaster_Alert_Icon__c,
                                 Toaster_Alert_Message__c,Toaster_Alert_Title__c,Toaster_Alert_Type__c,
                             Toaster_Alert_Mode__c,Toaster_Alert_Duration__c,Toaster_Alert_Param_Config__c,
-                            Use_Custom_Criteria_Handler__c,Record_Id_as_Input_Variable__c
+                            Use_Custom_Criteria_Handler__c,Record_Id_as_Input_Variable__c,Docked_Display__c
                             from Actions__c
                             where Object__c=:objName
                             and Page_Type__c = :pageType
@@ -58,7 +58,7 @@ public with sharing class LightningBuddyActionController {
                         Welcome_Mat_Title__c,Welcome_Mat_Tile_Config__c,Toaster_Alert_Icon__c,
                                 Toaster_Alert_Message__c,Toaster_Alert_Title__c,Toaster_Alert_Type__c,
                             Toaster_Alert_Mode__c,Toaster_Alert_Duration__c,Toaster_Alert_Param_Config__c,
-                            Use_Custom_Criteria_Handler__c,Record_Id_as_Input_Variable__c
+                            Use_Custom_Criteria_Handler__c,Record_Id_as_Input_Variable__c,Docked_Display__c
                         from Actions__c
                         where Object__c=:objName
                         and Page_Type__c = :pageType
@@ -73,7 +73,7 @@ public with sharing class LightningBuddyActionController {
                         Welcome_Mat_Title__c,Welcome_Mat_Tile_Config__c,Toaster_Alert_Icon__c,
                                 Toaster_Alert_Message__c,Toaster_Alert_Title__c,Toaster_Alert_Type__c,
                             Toaster_Alert_Mode__c,Toaster_Alert_Duration__c,Toaster_Alert_Param_Config__c,
-                            Use_Custom_Criteria_Handler__c,Record_Id_as_Input_Variable__c
+                            Use_Custom_Criteria_Handler__c,Record_Id_as_Input_Variable__c,Docked_Display__c
                         from Actions__c
                         where Object__c=:objName
                         and Page_Type__c = :pageType

@@ -1,0 +1,41 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:backgroundUtilityItem"
+    access="global">
+    <aura:attribute name="actionId" type="String" />
+    <aura:attribute name="headerIcon" type="String" />
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="content" type="String" />
+    <aura:attribute name="baseCss" type="String" default="slds-docked-composer slds-grid slds-grid_vertical " />
+    <aura:attribute name="expandedCss" type="String"
+        default="slds-modal slds-fade-in-open slds-docked-composer-modal " />
+    <aura:attribute name="isOpen" type="Boolean" default="true" />
+    <aura:attribute name="isExpanded" type="Boolean" default="false" />
+    <aura:attribute name="contentType" type="String"/>
+
+    <aura:handler name="dockCmpEvent" event="lightningbuddy:DockedComposerEvent" action="{!c.handleToggleEvent}" />
+
+    <aura:if isTrue="{!v.isExpanded}">
+        <div>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-docked-composer-modal"
+                aria-labelledby="dialog-heading-id-1" aria-describedby="dialog-content-id-1" aria-modal="true">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content" id="modal-content-id">
+                        <section class="{!concat(v.baseCss,(v.isOpen?'slds-is-open slds-has-focus':'slds-is-closed'))}"
+                            role="dialog" aria-labelledby="dialog-heading-id-1" aria-describedby="dialog-content-id-1">
+                            <lightningbuddy:DockedComposerContent title="{!v.title}" content="{!v.content}" headerIcon="{!v.headerIcon}" contentType="{!v.contentType}"/>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+        <aura:set attribute="else">
+            <div class="slds-docked_container">
+                <section class="{!concat(v.baseCss,(v.isOpen?'slds-is-open slds-has-focus':'slds-is-closed'))}" role="dialog"
+                    aria-labelledby="dialog-heading-id-1" aria-describedby="dialog-content-id-1">
+                    <lightningbuddy:DockedComposerContent title="{!v.title}" headerIcon="{!v.headerIcon}" />
+                </section>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

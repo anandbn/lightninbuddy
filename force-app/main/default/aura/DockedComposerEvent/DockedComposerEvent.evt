@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Event used to toggle mix/max and expand behaviour">
+    <aura:attribute name="isOpen" type="Boolean" default="true"/>
+    <aura:attribute name="isExpanded" type="Boolean" default="false"/>
+    <aura:attribute name="destroy" type="Boolean" default="false"/>
+</aura:event>

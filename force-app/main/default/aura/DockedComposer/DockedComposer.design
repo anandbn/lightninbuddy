@@ -1,0 +1,5 @@
+<design:component >
+        <design:attribute name="headerIcon" label="Icon for Header" description="Icon for Header"/>
+        <design:attribute name="title" label="Title" description="Title for your Docked composer"/>
+
+</design:component>

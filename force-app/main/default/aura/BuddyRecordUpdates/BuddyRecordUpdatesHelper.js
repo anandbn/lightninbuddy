@@ -16,8 +16,8 @@
             var appEvent = $A.get("e.c:BuddyEvent");
             var createdDate = cmp.get('v.record').fields.CreatedDate.value;
             var modifiedDate = cmp.get('v.record').fields.LastModifiedDate.value;
-
-            if(createdDate === modifiedDate){
+            //If created date is same as modified date and record was created in the last second
+            if(createdDate === modifiedDate && Math.abs(Date.now() - Date.parse(modifiedDate)) <=1000){
                 appEvent.setParams({ 
                     object:cmp.get('v.record').apiName,
                     pageType:'Record Create',

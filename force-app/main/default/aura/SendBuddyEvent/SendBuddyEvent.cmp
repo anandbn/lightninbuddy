@@ -1,7 +1,7 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
-    <aura:attribute name="object" type="String"/>
-    <aura:attribute name="pageType" type="String"/>
-    <aura:attribute name="objectSubTab" type="String"/>
-    <aura:registerEvent name="BuddyEvent" type="c:BuddyEvent"/>
+    <aura:attribute name="object" type="String" access="global"/>
+    <aura:attribute name="pageType" type="String" access="global"/>
+    <aura:attribute name="objectSubTab" type="String" access="global"/>
+    <aura:registerEvent name="BuddyEvent" type="c:BuddyEvent" access="global"/>
     <aura:handler name="init" value="{!this}" action="{!c.sendBuddyEvent}"/>
 </aura:component>

@@ -1,4 +1,5 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" >
     <aura:handler event="c:ShowWelcomeMat" action="{!c.displayWelcomeMat}"/>
+    <aura:handler event="c:ShowDockedComposer" action="{!c.displayDockedComposer}"/>
     {!v.body}
 </aura:component>	

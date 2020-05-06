@@ -3,5 +3,6 @@
     <design:attribute name="backgroundImgUrl" label="Background Image"/>
     <design:attribute name="bodyText" label="Body text"/>
     <design:attribute name="tileConfigJson" label="JSON Config for Mat tiles"/>
+    <design:attribute name="bannerImage" label="Banner Image (Deprecated)"/>
 
 </design:component>
