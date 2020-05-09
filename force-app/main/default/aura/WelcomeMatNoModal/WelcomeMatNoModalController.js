@@ -10,7 +10,9 @@
         var link = event.currentTarget.dataset.href;
         var urlEvent = $A.get("e.force:navigateToURL");
         var internalString = $A.get('$Label.c.InternalString');
-        if (link.includes(internalString)) {
+        if (link == null || link == undefined || link == 'null') {
+            // do nothing
+        } else if (link.includes(internalString)) {
             urlEvent.setParams({
                 "url": link
             });
