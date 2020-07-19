@@ -30,7 +30,7 @@
     "saveBreadCrumbEvent" : function(cmp,event) {
         var evtLoc = event.getParam("token");
         var evtQryString = event.getParam("querystring");
-        //console.log(new Date()+' - Location:'+evtLoc+',queryString='+evtQryString);
+        console.log(new Date()+' - Location:'+evtLoc+',queryString='+evtQryString);
         var settings = cmp.get('v.settings');
         if(!settings){
             this.initSettings(cmp,event,this.saveBreadCrumbEventCallback);
@@ -64,6 +64,7 @@
                 }
             }
             if(urlMatch || qryStringMatch){
+                console.log('Found URL match ...');
                 breadCrumbMatch = new Object();
                 breadCrumbMatch.eventType = theUrl.MasterLabel;
                 breadCrumbMatch.eventObject = myArray[1];

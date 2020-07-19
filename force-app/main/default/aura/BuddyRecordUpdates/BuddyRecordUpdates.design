@@ -1,0 +1,7 @@
+<design:component >
+        <design:attribute name="recordCreateThreshold" label="Record Create threshold (secs)" 
+                            description="Number of secs between created and modified date that will be considered a record create"/>
+        <design:attribute name="recordCreateActionThreshold" label="Record Create Action threshold (secs)" 
+                           description="Number of seconds after record create time after which the Record Create acton will not be triggered"/>
+
+</design:component>

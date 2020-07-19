@@ -82,6 +82,7 @@ public with sharing class LightningBuddyActionController {
             }
 
         }
+        System.debug('>>>>>>> Matching actions:'+actions);
         
         
         if(actions.size()>0){
@@ -137,7 +138,8 @@ public with sharing class LightningBuddyActionController {
                 }                
             }
             
-            
+            System.debug('>>>>>>> actionMap:'+actionMap);
+
             return actionMap.values();
         }else{
             return null;

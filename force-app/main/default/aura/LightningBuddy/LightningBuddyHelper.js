@@ -25,7 +25,9 @@
     
     "afterUserInfoCallback": function(result,cmp,event){
         var usrInfo = cmp.get('v.userInfo');
+        console.log(`${new Date()} - afterUserInfoCallback() - usrInfo = ${JSON.stringify(usrInfo,null,'\t')}`);
         var actions = result;
+        console.log(`${new Date()} - afterUserInfoCallback() - actions = ${JSON.stringify(actions,null,'\t')}`);
         var customCriteriaEvaluated = cmp.get('v.customCriteriaEvaluated');
         if(actions){
             for(var i=0;i<actions.length;i++){
@@ -261,7 +263,7 @@
         if(actionToShow.lightningbuddy__Record_Update_Criteria__c){
 	        var criteriaList = JSON.parse(actionToShow.lightningbuddy__Record_Update_Criteria__c);
             for(var j=0;j<criteriaList.length;j++){
-                executeAction = executeAction && String(record.fields[criteriaList[j].fieldName].value) === criteriaList[j].fieldValue;
+                executeAction = executeAction && String(record.fields[criteriaList[j].fieldName].value) === String(criteriaList[j].fieldValue);
             }
 
         }

@@ -1,7 +1,7 @@
 ({
     "handleBuddyEvent" : function(cmp, event, helper) {
-        console.log(new Date()+' - Lightning Buddy Event received');
-        //console.log('Lightning Buddy Event received:\n'+JSON.stringify(event.getParams(),null,4))
+        //console.log(new Date()+' - Lightning Buddy Event received');
+        console.log(`${new Date()} - handleBuddyEvent() - Lightning Buddy Event received:\n ${JSON.stringify(event.getParams(),null,'\t')}`)
         var consoleTabId = event.getParam('consoleTabId');
         var tabsAndEvents = cmp.get('v.tabsAndEvents');
         cmp.set('v.object',event.getParam('object'));
